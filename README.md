@@ -4,247 +4,137 @@ A curated collection of essential Claude Code skills and agents for professional
 
 > **"The right tool for the right job, at the right time."**
 
+---
+
+## Quick Reference
+
 **Skills** (`/skill-name`) are guided workflows you interact with.  
-**Agents** (`claude agent name`) are specialized helpers that work autonomously.
+**Agents** (`claude agent name`) are autonomous helpers that work independently.
+
+**Can't decide?** Start with a Skill for dialogue, escalate to an Agent for speed.
 
 ---
 
 ## Start Here
 
-**New to Claude Code tools?** Try these first:
+**New to these tools?** Pick 2-3 from Core, ignore Extended for now.
 
-1. `/brainstorming` — Before starting any new feature
-2. `code-reviewer` — After writing or modifying code
-3. `/systematic-debugging` — When you're stuck on a bug
-4. `planner` — When the task feels too big
-
----
-
-## The Toolkit
-
-| Stage | Skills | Agents |
-|-------|--------|--------|
-| **Plan** | `/brainstorming`, `/writing-plans` | `planner`, `architect` |
-| **Build** | `/test-driven-development`, `/coding-standards` | `code-reviewer`, `code-simplifier` |
-| **Review** | `/receiving-code-review`, `/requesting-code-review` | `security-reviewer` |
-| **Debug** | `/systematic-debugging` | `build-error-resolver` |
-| **Test** | `/verification-before-completion` | `e2e-runner` |
-| **Polish** | `/humanizer`, `/the-humanizer`, `/frontend-design` | — |
-| **Scale** | `/subagent-driven-development`, `/dispatching-parallel-agents` | — |
+**Most useful first:**
+1. `/brainstorming` — Before starting any feature
+2. `code-reviewer` — After writing code
+3. `/systematic-debugging` — When stuck on bugs
 
 ---
 
-## Plan
+## Core Toolkit (10 tools)
 
-### `/brainstorming` (Skill)
+These solve daily problems. Learn these first.
 
-Design features through structured dialogue.
+### Plan
 
-**Why it matters:** Designed to block implementation until you've written a design spec.
+**`/brainstorming`** — Design features through dialogue
+- *Best for:* Starting features where you tend to "figure it out as you code"
+- *Why:* Encourages writing a design spec first (skip with `--quick` for spikes)
 
-**Best for:** Starting new features where you're tempted to "figure it out as you code."
-
----
-
-### `/writing-plans` (Skill)
-
-Create detailed implementation plans.
-
-**Why it matters:** Plans critique themselves before finalizing — catches blind spots early.
-
-**Best for:** Complex features that span multiple files or systems.
+**`planner`** — Decompose complex features
+- *Best for:* Multi-file refactors, architecture changes
+- *Why:* Tailors plans to match your existing codebase patterns
 
 ---
 
-### `planner` (Agent)
+### Build
 
-Complex feature decomposition.
+**`/test-driven-development`** — TDD enforcement
+- *Best for:* Features needing tests and edge case coverage
+- *Why:* Encourages writing failing tests before implementation
 
-**Why it matters:** Analyzes existing codebase patterns first, then tailors the plan to match.
+**`/coding-standards`** — Enforce conventions
+- *Best for:* Keeping code consistent across projects
+- *Why:* Catches conceptual issues like "is this function doing too many things?"
 
-**Best for:** Breaking down microservices, migrations, or multi-phase refactors.
-
----
-
-### `architect` (Agent)
-
-System design and tradeoff evaluation.
-
-**Why it matters:** Forces explicit "We're choosing X over Y because..." documentation.
-
-**Best for:** Deciding between REST vs GraphQL, monolith vs microservices, PostgreSQL vs Mongo.
+**`code-reviewer`** — Automatic code review
+- *Best for:* Pre-screening PRs before human review
+- *Why:* Confidence-based filtering — only reports what truly matters
 
 ---
 
-## Build
+### Debug
 
-### `/test-driven-development` (Skill)
+**`/systematic-debugging`** — Root cause analysis
+- *Best for:* Intermittent production bugs
+- *Why:* Based on defense-in-depth — assumes multiple things could be wrong
 
-TDD enforcement (RED→GREEN→IMPROVE).
-
-**Why it matters:** Designed to block implementation until you have a failing test.
-
-**Best for:** Features where you want guaranteed test coverage and testable code.
-
----
-
-### `/coding-standards` (Skill)
-
-Enforce conventions (KISS, DRY, YAGNI, immutability).
-
-**Why it matters:** Checks conceptual issues like "is this function doing too many things?"
-
-**Best for:** Keeping code consistent across projects and teams.
+**`build-error-resolver`** — Fix build/type errors
+- *Best for:* Post-upgrade TypeScript error floods
+- *Why:* Specialized per language (TS, Python, Go, Rust, etc.)
 
 ---
 
-### `code-reviewer` (Agent)
+### Review
 
-Automatic code quality review.
+**`security-reviewer`** — Vulnerability scanning
+- *Best for:* Auth, payment, or user data changes
+- *Why:* OWASP Top 10, injection checks, dependency audit
 
-**Why it matters:** Uses confidence-based filtering — only reports issues that truly matter.
-
-**Best for:** Pre-screening PRs before human review.
-
----
-
-### `code-simplifier` (Agent)
-
-Simplify code while preserving behavior.
-
-**Why it matters:** Will undo clever optimizations if they hurt readability.
-
-**Best for:** Inherited code with nested ternaries or unclear logic.
+**`/requesting-code-review`** — Pre-human review
+- *Best for:* Catching formatting, unused vars, obvious bugs
+- *Why:* Includes "silent-failure-hunter" for swallowed errors
 
 ---
 
-## Review
+### Polish
 
-### `/receiving-code-review` (Skill)
-
-Handle PR feedback with rigor.
-
-**Why it matters:** Built-in YAGNI check — flags "implement properly" requests for unused code.
-
-**Best for:** Evaluating reviewer suggestions before implementing.
+**`/de-ai`** — Remove AI writing patterns
+- *Best for:* Blog posts, emails, user-facing content
+- *Why:* Strips phrases like "In the ever-evolving landscape of..."
 
 ---
 
-### `/requesting-code-review` (Skill)
+## Extended Toolkit (Power Users)
 
-Automated pre-human review.
+Useful, but learn Core first.
 
-**Why it matters:** Includes "silent-failure-hunter" for swallowed errors and bad fallbacks.
-
-**Best for:** Catching formatting, unused vars, and obvious bugs before team review.
-
----
-
-### `security-reviewer` (Agent)
-
-Vulnerability scanning (OWASP, injections).
-
-**Why it matters:** Paranoid by design — assumes everything is suspicious.
-
-**Best for:** Auth, payment, or user data changes. Better safe than breached.
-
----
-
-## Debug
-
-### `/systematic-debugging` (Skill)
-
-Root cause analysis for complex bugs.
-
-**Why it matters:** Based on defense-in-depth — assumes multiple things could be wrong.
-
-**Best for:** Intermittent production issues that resist quick fixes.
+| Tool | What it does | Best for |
+|------|--------------|----------|
+| `/writing-plans` | Detailed implementation plans | Complex multi-phase features |
+| `/receiving-code-review` | Process PR feedback with rigor | Evaluating reviewer suggestions |
+| `code-simplifier` | Simplify while preserving behavior | Inherited nested-ternary nightmares |
+| `architect` | System design and tradeoffs | Choosing between REST/GraphQL, SQL/NoSQL |
+| `e2e-runner` | Playwright E2E testing | Critical user flows (checkout, signup) |
+| `/verification-before-completion` | Pre-completion checklist | Before shipping — edge cases, debug code |
+| `/add-voice` | Add personality to text | Emails that need warmth |
+| `/frontend-design` | UX/UI guidance | Landing pages that shouldn't look generic |
+| `/subagent-driven-development` | Multi-agent parallel workflows | 2000-line refactors |
+| `/dispatching-parallel-agents` | Run agents simultaneously | Security + performance review in parallel |
 
 ---
 
-### `build-error-resolver` (Agent)
+## Workflow Guidance
 
-Fix build and type errors.
+```bash
+# Quick fix (< 2 hours):
+code-reviewer
 
-**Why it matters:** Specialized per language — different strategies for TS, Python, Go, Rust, etc.
+# Medium feature (1-2 days):
+/brainstorming → code-reviewer → /verification-before-completion
 
-**Best for:** 47 TypeScript errors after an upgrade — reads patterns, fixes incrementally.
-
----
-
-## Test
-
-### `/verification-before-completion` (Skill)
-
-Pre-completion checklist.
-
-**Why it matters:** Checks both technical (tests pass) and process (docs updated) items.
-
-**Best for:** Before shipping — edge cases tested? debug code removed? README updated?
+# Large feature (1+ weeks):
+/brainstorming → planner → /test-driven-development → 
+code-reviewer → security-reviewer → e2e-runner
+```
 
 ---
 
-### `e2e-runner` (Agent)
+## Cost Transparency
 
-E2E testing with Playwright.
+| Workflow | Estimated Cost |
+|----------|---------------|
+| Single agent (code-reviewer) | ~$0.10-0.50 |
+| Sequential skills (brainstorm → plan → review) | ~$0.50-2.00 |
+| Parallel agents (security + e2e) | ~$1.00-3.00 |
+| Subagent-driven (multi-agent refactor) | ~$2.00-5.00 |
 
-**Why it matters:** Manages test quarantines — flaky tests don't block CI.
-
-**Best for:** Critical user flows that unit tests miss (checkout, signup, payments).
-
----
-
-## Polish
-
-### `/humanizer` (Skill)
-
-Remove AI writing patterns.
-
-**Why it matters:** Based on Wikipedia's AI Cleanup project — analyzed thousands of AI-edited articles.
-
-**Best for:** Blog posts and emails before publishing — removes "In the ever-evolving landscape..."
-
----
-
-### `/the-humanizer` (Skill)
-
-Add voice and personality to text.
-
-**Why it matters:** While `/humanizer` removes AI tells, this adds voice and opinions.
-
-**Best for:** Sterile emails that need warmth: "I genuinely don't know how to feel about this deadline."
-
----
-
-### `/frontend-design` (Skill)
-
-UX/UI guidance and patterns.
-
-**Why it matters:** "Anti-template policy" — blocks generic Tailwind/shadcn defaults.
-
-**Best for:** Landing pages that shouldn't look like every other SaaS site.
-
----
-
-## Scale
-
-### `/subagent-driven-development` (Skill)
-
-Multi-agent parallel workflows.
-
-**Why it matters:** Inspired by GANs — generator + evaluator iterate until quality threshold.
-
-**Best for:** 2000-line refactors where one agent codes, one reviews, one tests — simultaneously.
-
----
-
-### `/dispatching-parallel-agents` (Skill)
-
-Run multiple agents simultaneously.
-
-**Why it matters:** The primitive that subagent-driven-development is built on.
-
-**Best for:** Security + performance + code review in parallel (10 min vs 30 min).
+**Money-saving tip:** Start with skills, escalate to agents only when needed.
 
 ---
 
@@ -252,32 +142,40 @@ Run multiple agents simultaneously.
 
 ### Prerequisites
 
-- Claude Code CLI installed (`claude --version` ≥ 0.1.0)
+- Claude Code CLI installed
 - Git for cloning
 
-### Install
+### Personal Setup
 
 ```bash
-# Clone the repository
 git clone https://github.com/artttj/claude-power-tools.git
 cd claude-power-tools
-
-# Copy skills and agents to your Claude directory
 cp -r skills/* ~/.claude/skills/
 cp -r agents/* ~/.claude/agents/
 ```
 
-### Verify Installation
+### Team Setup
 
+**Option 1: Git Submodule (Recommended)**
 ```bash
-# Should list available skills
-ls ~/.claude/skills/
-
-# Should list available agents
-ls ~/.claude/agents/
+# In your team repo
+git submodule add https://github.com/artttj/claude-power-tools.git .claude-tools
+# Team updates via: git submodule update
 ```
 
-**Success:** You can now invoke skills with `/skill-name` and agents with `claude agent agent-name`.
+**Option 2: Fork + Customize**
+1. Fork this repo
+2. Customize `/coding-standards` for your stack
+3. Team clones the fork
+
+### Verify
+
+```bash
+ls ~/.claude/skills/  # Should show core tools
+ls ~/.claude/agents/  # Should show agents
+```
+
+**Success:** You can now run `/brainstorming` and `claude agent code-reviewer`.
 
 ---
 

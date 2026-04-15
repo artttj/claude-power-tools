@@ -6,12 +6,25 @@ A curated collection of essential Claude Code skills and agents for professional
 
 ---
 
-## Quick Reference
+## What Are These?
 
-**Skills** (`/skill-name`) are guided workflows you interact with.  
-**Agents** (`claude agent name`) are autonomous helpers that work independently.
+**Skills** (`/skill-name`) are guided conversation workflows defined in YAML files that customize Claude's behavior. You interact with them — they ask questions, you respond.
 
-**Can't decide?** Start with a Skill for dialogue, escalate to an Agent for speed.
+**Agents** (`claude agent name`) are pre-configured task-specific assistants. You delegate to them — they work autonomously and return results.
+
+**Can't decide?** Start with a Skill for dialogue when learning, escalate to an Agent for speed once familiar.
+
+---
+
+## Quick Start
+
+```bash
+# Use a skill (interactive)
+/brainstorming
+
+# Use an agent (autonomous)
+claude agent code-reviewer
+```
 
 ---
 
@@ -30,82 +43,44 @@ A curated collection of essential Claude Code skills and agents for professional
 
 These solve daily problems. Learn these first.
 
-### Plan
-
-**`/brainstorming`** — Design features through dialogue
-- *Best for:* Starting features where you tend to "figure it out as you code"
-- *Why:* Encourages writing a design spec first (skip with `--quick` for spikes)
-
-**`planner`** — Decompose complex features
-- *Best for:* Multi-file refactors, architecture changes
-- *Why:* Tailors plans to match your existing codebase patterns
-
----
-
-### Build
-
-**`/test-driven-development`** — TDD enforcement
-- *Best for:* Features needing tests and edge case coverage
-- *Why:* Encourages writing failing tests before implementation
-
-**`/coding-standards`** — Enforce conventions
-- *Best for:* Keeping code consistent across projects
-- *Why:* Catches conceptual issues like "is this function doing too many things?"
-
-**`code-reviewer`** — Automatic code review
-- *Best for:* Pre-screening PRs before human review
-- *Why:* Confidence-based filtering — only reports what truly matters
-
----
-
-### Debug
-
-**`/systematic-debugging`** — Root cause analysis
-- *Best for:* Intermittent production bugs
-- *Why:* Based on defense-in-depth — assumes multiple things could be wrong
-
-**`build-error-resolver`** — Fix build/type errors
-- *Best for:* Post-upgrade TypeScript error floods
-- *Why:* Specialized per language (TS, Python, Go, Rust, etc.)
-
----
-
-### Review
-
-**`security-reviewer`** — Vulnerability scanning
-- *Best for:* Auth, payment, or user data changes
-- *Why:* OWASP Top 10, injection checks, dependency audit
-
-**`/requesting-code-review`** — Pre-human review
-- *Best for:* Catching formatting, unused vars, obvious bugs
-- *Why:* Includes "silent-failure-hunter" for swallowed errors
-
----
-
-### Polish
-
-**`/humanizer`** — Remove AI writing patterns
-- *Best for:* Blog posts, emails, user-facing content
-- *Why:* Strips phrases like "In the ever-evolving landscape of..."
+| Tool | Type | Best For | Skip If... |
+|------|------|----------|------------|
+| `/brainstorming` | Skill | Starting features | Just adding a field to existing form |
+| `planner` | Agent | Multi-file refactors | Single-file change |
+| `/test-driven-development` | Skill | Features needing tests | Spikes/experiments |
+| `/coding-standards` | Skill | Keeping code consistent | Reviewing someone else's code |
+| `code-reviewer` | Agent | Pre-screening PRs | PR is <10 lines, only tests |
+| `/systematic-debugging` | Skill | Intermittent production bugs | Obvious typo/quick fix |
+| `build-error-resolver` | Agent | Post-upgrade error floods | Single build error |
+| `security-reviewer` | Agent | Auth/payment/user data changes | Pure UI changes |
+| `/requesting-code-review` | Skill | Catching obvious bugs | Emergency hotfix |
+| `/humanizer` | Skill | Blog posts, emails | Internal docs, code comments |
 
 ---
 
 ## Extended Toolkit (Power Users)
 
-Useful, but learn Core first.
+Useful, but learn Core first. These tools are **optional**.
 
-| Tool | What it does | Best for |
-|------|--------------|----------|
-| `/writing-plans` | Detailed implementation plans | Complex multi-phase features |
-| `/receiving-code-review` | Process PR feedback with rigor | Evaluating reviewer suggestions |
-| `code-simplifier` | Simplify while preserving behavior | Inherited nested-ternary nightmares |
-| `architect` | System design and tradeoffs | Choosing between REST/GraphQL, SQL/NoSQL |
-| `e2e-runner` | Playwright E2E testing | Critical user flows (checkout, signup) |
-| `/verification-before-completion` | Pre-completion checklist | Before shipping — edge cases, debug code |
-| `/the-humanizer` | Add personality to text | Emails that need warmth |
-| `/frontend-design` | UX/UI guidance | Landing pages that shouldn't look generic |
-| `/subagent-driven-development` | Multi-agent parallel workflows | 2000-line refactors |
-| `/dispatching-parallel-agents` | Run agents simultaneously | Security + performance review in parallel |
+**Polish:**
+- `/the-humanizer` (Skill) — Add personality to text
+- `/frontend-design` (Skill) — UX/UI guidance
+
+**Review:**
+- `/receiving-code-review` (Skill) — Process PR feedback
+- `code-simplifier` (Agent) — Simplify complex code
+
+**Planning:**
+- `/writing-plans` (Skill) — Detailed implementation plans
+- `architect` (Agent) — System design decisions
+
+**Testing:**
+- `e2e-runner` (Agent) — Playwright E2E tests
+- `/verification-before-completion` (Skill) — Pre-ship checklist
+
+**Scale:**
+- `/subagent-driven-development` (Skill) — Multi-agent workflows
+- `/dispatching-parallel-agents` (Skill) — Parallel execution
 
 ---
 
@@ -127,14 +102,14 @@ code-reviewer → security-reviewer → e2e-runner
 
 ## Cost Transparency
 
-| Workflow | Estimated Cost |
-|----------|---------------|
-| Single agent (code-reviewer) | ~$0.10-0.50 |
-| Sequential skills (brainstorm → plan → review) | ~$0.50-2.00 |
-| Parallel agents (security + e2e) | ~$1.00-3.00 |
-| Subagent-driven (multi-agent refactor) | ~$2.00-5.00 |
+| Workflow | Estimated Cost | When to Use |
+|----------|---------------|-------------|
+| Single agent | ~$0.10-0.50 | Quick reviews, small fixes |
+| Sequential skills | ~$0.50-2.00 | Medium features |
+| Parallel agents | ~$1.00-3.00 | Security + review together |
+| Subagent-driven | ~$2.00-5.00 | Large refactors only |
 
-**Money-saving tip:** Start with skills, escalate to agents only when needed.
+**Money-saving tip:** Start with skills, escalate to agents only when needed. Costs are per-run, not subscription.
 
 ---
 
@@ -142,8 +117,9 @@ code-reviewer → security-reviewer → e2e-runner
 
 ### Prerequisites
 
-- Claude Code CLI installed
+- Claude Code CLI installed (`claude --version` ≥ 0.1.0)
 - Git for cloning
+- API key configured (if using agents extensively)
 
 ### Personal Setup
 

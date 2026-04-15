@@ -84,7 +84,7 @@ These solve daily problems. Learn these first.
 
 ### Polish
 
-**`/de-ai`** — Remove AI writing patterns
+**`/humanizer`** — Remove AI writing patterns
 - *Best for:* Blog posts, emails, user-facing content
 - *Why:* Strips phrases like "In the ever-evolving landscape of..."
 
@@ -102,7 +102,7 @@ Useful, but learn Core first.
 | `architect` | System design and tradeoffs | Choosing between REST/GraphQL, SQL/NoSQL |
 | `e2e-runner` | Playwright E2E testing | Critical user flows (checkout, signup) |
 | `/verification-before-completion` | Pre-completion checklist | Before shipping — edge cases, debug code |
-| `/add-voice` | Add personality to text | Emails that need warmth |
+| `/the-humanizer` | Add personality to text | Emails that need warmth |
 | `/frontend-design` | UX/UI guidance | Landing pages that shouldn't look generic |
 | `/subagent-driven-development` | Multi-agent parallel workflows | 2000-line refactors |
 | `/dispatching-parallel-agents` | Run agents simultaneously | Security + performance review in parallel |

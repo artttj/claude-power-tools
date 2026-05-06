@@ -1,0 +1,16 @@
+{
+  "name": "rs",
+  "version": "1.0.0",
+  "description": "Short slash-command aliases for the Claude Code skills you already use. /ask /brn /10x /trim /cr /hum /ui /polish /std /prm /sec /jobs.",
+  "author": {
+    "name": "artttj",
+    "url": "https://github.com/artttj"
+  },
+  "homepage": "https://github.com/artttj/rapid-stack",
+  "license": "MIT",
+  "keywords": [
+    "shortcuts",
+    "aliases",
+    "slash-commands"
+  ]
+}

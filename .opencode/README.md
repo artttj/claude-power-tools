@@ -28,6 +28,7 @@ Three commands wrap upstream skills that aren't bundled here, same as in Claude 
 | Command | Upstream | Source |
 |---|---|---|
 | `/brn` | `brainstorming` | [obra/superpowers](https://github.com/obra/superpowers) — MIT |
+| `/dbg` | `systematic-debugging` | [obra/superpowers](https://github.com/obra/superpowers) — MIT |
 | `/ui` | `design` (a.k.a. ui-ux-pro-max) | [nextlevelbuilder/ui-ux-pro-max-skill](https://github.com/nextlevelbuilder/ui-ux-pro-max-skill) — MIT |
 | `/jobs` | `steve-jobs-perspective` | [alchaincyf/steve-jobs-skill](https://github.com/alchaincyf/steve-jobs-skill) |
 

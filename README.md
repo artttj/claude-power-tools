@@ -20,6 +20,7 @@ Use them as `/rs:ask`, `/rs:cr`, `/rs:hum`, and so on.
 |---|---|
 | `/ask` | Answers questions about the codebase. Read-only by design. |
 | `/brn` | Lightweight brainstorm. Asks clarifying questions before acting, so the model doesn't run off and hallucinate. |
+| `/dbg` | Systematic debugging. Reproduce first, hypothesize from evidence, change one variable at a time. Stops guess-fixing. |
 | `/10x` | Find the biggest wins in an idea. Smallest effort, largest payoff. Catches features you missed. |
 | `/trim` | Simplify. Tightens recently changed code without changing behavior. Operates on the current diff. |
 | `/cr` | Code review without the 40-comment pile-on. High-confidence findings only. |
@@ -50,7 +51,7 @@ Two commands wrap external skills. Install them separately:
 /plugin install steve-jobs
 ```
 
-`/brn` also wraps an external skill (`superpowers:brainstorming`) but falls back to a 3-question dialogue if that skill is not installed.
+`/brn` and `/dbg` also wrap external skills (`superpowers:brainstorming` and `superpowers:systematic-debugging`) but fall back to inline prompts if those skills are not installed.
 
 ## Want them without the `/rs:` prefix?
 
